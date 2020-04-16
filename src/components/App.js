@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from 'react';
+
 import getOnlineWorldwideStatistics from '../logic/fetch-data';
+import StatsDataTable from './StatsDataTable';
 
 const App = () => {
-    const [tableData, setTableData] = useState({});
-    let [num, setNum] = useState(0);
+    const [tableData, setTableData] = useState({
+        response: []
+    });
 
     const loadData = async () => {
         const data = await getOnlineWorldwideStatistics();
@@ -16,11 +19,7 @@ const App = () => {
     }, []);
 
     return (
-        <div className='app'>
-            <button onClick={() => setNum(num + 1)}>
-                {tableData.response ? tableData.response[num].country : null}
-            </button>
-        </div>
+        <StatsDataTable data={tableData}/>
     );
 }
 
