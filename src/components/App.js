@@ -9,6 +9,7 @@ const App = () => {
     const [allDataFromServer, setAllDataFromServer] = useState([]);
     const [countriesData, setCountriesData] = useState([]);
     const [continentsData, setContinentsData] = useState([]);
+    const [globalData, setGlobalData] = useState({});
     const [countriesNames, setCountriesNames] = useState([]);
 
     const loadCountriesNames = async () => {
