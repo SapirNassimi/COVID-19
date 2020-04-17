@@ -8,9 +8,9 @@ const getOnlineWorldwideStatistics = async () => {
         }
     });
 
-    console.log(response.data);
+    console.log(response.data.response);
     
-    return response.data;
+    return response.data.response;
 }
 
 export default getOnlineWorldwideStatistics;

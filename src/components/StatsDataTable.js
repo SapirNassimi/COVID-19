@@ -12,8 +12,8 @@ const StatsDataTable = props => {
         <ul className='data-table'>
             <StatsTableHeader />
             {
-                data.response.map(country =>
-                    <StatsDataItem data={country}/>
+                data.map(country =>
+                    <StatsDataItem key={country.country} data={country}/>
                 )
             }
         </ul>
