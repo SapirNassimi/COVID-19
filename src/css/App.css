@@ -8,15 +8,6 @@ body {
     flex-direction: column;
 }
 
-.data-table li {
-    border-radius: 10px;
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 10px;
-    padding-left: 30px;
-    padding-right: 30px;
-}
-
 .data-table .table-header {
     background-color: #95a5a6;
     font-size: 14px;
@@ -39,26 +30,6 @@ body {
 }
 
 .data-table .col-2 {
-    flex-basis: 12%;
-}
-
-.data-table .col-3 {
-    flex-basis: 12%;
-}
-
-.data-table .col-4 {
-    flex-basis: 12%;
-}
-
-.data-table .col-5 {
-    flex-basis: 12%;
-}
-
-.data-table .col-6 {
-    flex-basis: 12%;
-}
-
-.data-table .col-7 {
     flex-basis: 12%;
 }
 
