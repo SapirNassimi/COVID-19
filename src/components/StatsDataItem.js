@@ -15,10 +15,11 @@ const StatsDataItem = props => {
 
     const Column = styled.div`
         flex-basis: ${props => props.country ? '16%' : '12%'};
+        color: ${props => props.inputColor || '#333'};
 
         ${props => props.country && `
             font-weight: bolder;
-        `}
+        `};
     `;
 
     return (
@@ -27,9 +28,9 @@ const StatsDataItem = props => {
             <Column>{data.cases.total}</Column>
             <Column>{data.cases.new}</Column>
             <Column>{data.deaths.total}</Column>
-            <Column>{data.deaths.new}</Column>
+            <Column inputColor='red'>{data.deaths.new}</Column>
             <Column>{data.cases.critical}</Column>
-            <Column>{data.cases.recovered}</Column>
+            <Column inputColor='#06cc06'>{data.cases.recovered}</Column>
             <Column>{data.cases.active}</Column>
         </ListItem>
     );
