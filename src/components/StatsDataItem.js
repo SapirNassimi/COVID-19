@@ -23,7 +23,7 @@ const StatsDataItem = props => {
 
     return (
         <ListItem>
-            <Column primary>{data.country}</Column>
+            <Column country>{data.country}</Column>
             <Column>{data.cases.total}</Column>
             <Column>{data.cases.new}</Column>
             <Column>{data.deaths.total}</Column>
