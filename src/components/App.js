@@ -3,12 +3,22 @@ import React, { useState, useEffect } from 'react';
 import getOnlineWorldwideStatistics from '../logic/fetch-statistics';
 import getCountriesNames from '../logic/fetch-countries';
 
+import GlobalData from '../components/GlobalData';
 import StatsDataTable from './StatsDataTable';
 
 const App = () => {
     const [allDataFromServer, setAllDataFromServer] = useState([]);
     const [countriesData, setCountriesData] = useState([]);
     const [continentsData, setContinentsData] = useState([]);
+    const [globalData, setGlobalData] = useState({
+        cases: {
+            all: '',
+            recovered: ''
+        },
+        deaths: {
+            all: ''
+        }
+    });
     const [countriesNames, setCountriesNames] = useState([]);
 
     const loadCountriesNames = async () => {
@@ -28,7 +38,7 @@ const App = () => {
         allDataFromServer.map(record => {
             countriesNames.includes(record.country) ?
                 tempCountries.push(record) :
-                tempContinents.push(record);
+                (record.country === 'All' ? setGlobalData(record) : tempContinents.push(record));
         });
 
         setCountriesData(tempCountries);
@@ -42,7 +52,10 @@ const App = () => {
     }, []);
 
     return (
-        <StatsDataTable data={countriesData}/>
+        <>
+            <GlobalData data={globalData}/>
+            <StatsDataTable data={countriesData}/>
+        </>
     );
 }
 
