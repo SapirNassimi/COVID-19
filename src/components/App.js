@@ -54,7 +54,7 @@ const App = () => {
     return (
         <>
             <GlobalData data={globalData}/>
-            <StatsDataTable data={countriesData}/>
+            <StatsDataTable data={countriesData} global={globalData}/>
         </>
     );
 }

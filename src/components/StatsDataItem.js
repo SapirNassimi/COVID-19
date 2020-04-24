@@ -7,7 +7,7 @@ const StatsDataItem = props => {
     const data = props.data;
 
     return (
-        <ListItem>
+        <ListItem totals={props.totals || undefined}>
             <Column country>{data.country}</Column>
             <Column>{data.cases.total}</Column>
             <Column>{data.cases.new}</Column>

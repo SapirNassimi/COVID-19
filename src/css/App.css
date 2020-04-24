@@ -8,18 +8,6 @@ body {
     flex-direction: column;
 }
 
-.data-table .totals-row {
-    background-color: #e1e6e7;
-}
-
-.data-table .totals-data {
-    font-weight: bolder;
-}
-
-.data-table .totals-header-div {
-    color: #6e9194;
-}
-
 .top-data-title-div {
     padding: 3% 4% 0% 4%;
 }
