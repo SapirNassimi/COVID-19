@@ -1,30 +1,34 @@
 import React from 'react';
+import styled from 'styled-components';
+
+import GlobalDataItem from './GlobalDataItem';
 
 const GlobalData = props => {
     const data = props.data;
+
+    const Container = styled.div`
+        display: flex;
+        flex-direction: row;
+    `;
     
+    const LastUpdateTime = styled.div`
+        color: #95a5a6;
+        font-size: 12px;
+        float: left;
+        padding-right: 1%;
+        font-weight: bolder;
+        text-align: center;
+    `;
+
     return (
-        <div key='global-data-wrapper'>
-            <div className='totals-data-div'>
-                <div className='top-data-title-div'>
-                    <p className='top-data-title'>Coronavirus Cases</p>
-                    <p className='top-data-value red' key='virus-cases-top'>{data.cases.total}</p>
-                </div>
-                <div className='top-data-title-div'>
-                    <p className='top-data-title'>Deaths</p>
-                    <p className='top-data-value red' key='deaths-top'>{data.deaths.total}</p>
-                </div>
-                <div className='top-data-title-div'>
-                    <p className='top-data-title'>Recovered</p>
-                    <p className='top-data-value green' key='recovered-top'>{data.cases.recovered}</p>
-                </div>
-            </div>
-            <div className='top-data-update-time-title-div'>
-                <p classNAme='top-data-title update-time'>
-                    Last Update Time: {new Date(data.time).toLocaleString()}
-                </p>
-            </div>
-        </div>
+        <>
+            <Container>
+                <GlobalDataItem title='Coronavirus Cases' value={data.cases.total} color='red'/>
+                <GlobalDataItem title='Deaths' value={data.deaths.total} color='red'/>
+                <GlobalDataItem title='Recovered' value={data.cases.recovered} color='#06cc06'/>
+            </Container>
+            <LastUpdateTime>Last Update Time: {new Date(data.time).toLocaleString()}</LastUpdateTime>
+        </>
     );
 }
 

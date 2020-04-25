@@ -3,7 +3,8 @@ import React, { useState, useEffect } from 'react';
 import getOnlineWorldwideStatistics from '../logic/fetch-statistics';
 import getCountriesNames from '../logic/fetch-countries';
 
-import GlobalData from '../components/GlobalData';
+import { Body } from './Body';
+import GlobalData from './GlobalData';
 import StatsDataTable from './StatsDataTable';
 
 const App = () => {
@@ -52,10 +53,10 @@ const App = () => {
     }, []);
 
     return (
-        <>
+        <Body>
             <GlobalData data={globalData}/>
-            <StatsDataTable data={countriesData}/>
-        </>
+            <StatsDataTable data={countriesData} global={globalData}/>
+        </Body>
     );
 }
 

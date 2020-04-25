@@ -1,19 +1,22 @@
 import React from 'react';
 
+import { ListItem } from './ListItem';
+import { Column } from './Column';
+
 const StatsDataItem = props => {
     const data = props.data;
 
     return (
-        <li className='table-row'>
-            <div className='col col-1'>{data.country}</div>
-            <div className='col col-2'>{data.cases.total}</div>
-            <div className='col col-3 red'>{data.cases.new}</div>
-            <div className='col col-4'>{data.deaths.total}</div>
-            <div className='col col-5 red'>{data.deaths.new}</div>
-            <div className='col col-6'>{data.cases.critical}</div>
-            <div className='col col-7 green'>{data.cases.recovered}</div>
-            <div className='col col-8'>{data.cases.active}</div>
-        </li>
+        <ListItem totals={props.totals || undefined}>
+            <Column country>{data.country}</Column>
+            <Column>{data.cases.total}</Column>
+            <Column>{data.cases.new}</Column>
+            <Column>{data.deaths.total}</Column>
+            <Column inputColor='red'>{data.deaths.new}</Column>
+            <Column>{data.cases.critical}</Column>
+            <Column inputColor='#06cc06'>{data.cases.recovered}</Column>
+            <Column>{data.cases.active}</Column>
+        </ListItem>
     );
 }
 
