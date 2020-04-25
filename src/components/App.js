@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 import getOnlineWorldwideStatistics from '../logic/fetch-statistics';
 import getCountriesNames from '../logic/fetch-countries';
+import { sortByProperty } from '../utils/sort';
 
 import { Body } from './Body';
 import GlobalData from './GlobalData';
@@ -28,7 +29,8 @@ const App = () => {
     }
 
     const loadAllStatsFromServer = async () => {
-        const data = await getOnlineWorldwideStatistics();
+        let data = await getOnlineWorldwideStatistics();
+        sortByProperty(data, 'cases', 'total', false);
         setAllDataFromServer(data);
     }
 
