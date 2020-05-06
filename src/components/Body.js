@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Body = styled.body`
+export const Body = styled.div`
     color: #333;
     background-color: #e0e4e6;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;

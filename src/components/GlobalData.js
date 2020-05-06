@@ -3,22 +3,22 @@ import styled from 'styled-components';
 
 import GlobalDataItem from './GlobalDataItem';
 
+const Container = styled.div`
+    display: flex;
+    flex-direction: row;
+`;
+
+const LastUpdateTime = styled.div`
+    color: #95a5a6;
+    font-size: 12px;
+    float: left;
+    padding-right: 1%;
+    font-weight: bolder;
+    text-align: center;
+`;
+
 const GlobalData = props => {
     const data = props.data;
-
-    const Container = styled.div`
-        display: flex;
-        flex-direction: row;
-    `;
-    
-    const LastUpdateTime = styled.div`
-        color: #95a5a6;
-        font-size: 12px;
-        float: left;
-        padding-right: 1%;
-        font-weight: bolder;
-        text-align: center;
-    `;
 
     return (
         <>
