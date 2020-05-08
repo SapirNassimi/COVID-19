@@ -13,14 +13,18 @@ const App = () => {
     const [countriesDataToShow, setCountriesDataToShow] = useState([]);
     const [continentsDataToShow, setContinentsDataToShow] = useState([]);
     const [globalData, setGlobalData] = useState({});
+    const [sortedBy, setSortedBy] = useState({
+        firstField: 'cases',
+        secondField: 'total',
+        isDescending: false
+    })
 
     useEffect(() => {
         retriveAppData();
     }, []);
 
     useEffect(() => {
-        sortByProperty(countriesDataToShow, 'cases', 'total', false);
-        sortByProperty(continentsDataToShow, 'cases', 'total', false);
+        sortTableData('cases', 'total');
     }, [countriesDataToShow], [continentsDataToShow]);
 
     const retriveAppData = async () => {
@@ -57,12 +61,37 @@ const App = () => {
         setContinentsDataToShow(filteredContinents);
     }
 
+    const sortTableData = (firstField, secondField) => {
+        console.log(secondField);
+
+        if (firstField === sortedBy.firstField && secondField === sortedBy.secondField) {
+            sortByProperty(countriesDataToShow, firstField, secondField, !sortedBy.isDescending);
+            sortByProperty(continentsDataToShow, firstField, secondField, !sortedBy.isDescending);
+
+            setSortedBy({
+                ...sortedBy,
+                isDescending: !sortedBy.isDescending
+            });
+        } else {
+            sortByProperty(countriesDataToShow, firstField, secondField, true);
+            sortByProperty(continentsDataToShow, firstField, secondField, true);
+
+            setSortedBy({
+                firstField,
+                secondField,
+                isDescending: true
+            });
+        }
+    }
+
     return (
         <Body>
             <PageHeader globalData={globalData} updateTable={filterData}/>
-            <DataTable countriesData={countriesDataToShow}
+            <DataTable
+                countriesData={countriesDataToShow}
                 continentsData={continentsDataToShow}
-                globalData={globalData} />
+                globalData={globalData}
+                sortTable={sortTableData}/>
         </Body>
     )
 }

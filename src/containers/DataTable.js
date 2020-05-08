@@ -6,7 +6,7 @@ import TableRow from '../components/TableRow';
 const DataTable = props => {
     return (
         <ul>
-            <TableHeader />
+            <TableHeader sortTable={props.sortTable}/>
             {
                 props.countriesData.map(country =>
                     <TableRow key={country.country} data={country}/>

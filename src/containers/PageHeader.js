@@ -22,8 +22,7 @@ const PageHeader = props => {
                 type='text'
                 placeholder='Search'
                 value={searchText.search}
-                onChange={onChange}/>
-            
+                onChange={onChange}/>            
         </div>
     )
 }
