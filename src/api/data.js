@@ -9,6 +9,8 @@ export const getCountriesData = async () => {
         await fetchData();
     }
 
+    console.log('Countries from server: ', countriesData);
+
     return countriesData;
 }
 
@@ -17,6 +19,8 @@ export const getContinentsData = async () => {
         await fetchData();
     }
 
+    console.log('Continents from server: ', continentsData);
+
     return continentsData;
 }
 
@@ -24,6 +28,8 @@ export const getGlobalData = async () => {
     if (fetchDataIsNeeded()) {
         await fetchData();
     }
+
+    console.log('Global from server: ', globalData);
 
     return globalData;
 }

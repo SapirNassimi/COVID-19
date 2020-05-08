@@ -1,7 +1,7 @@
 import React from 'react';
 
 import TableHeader from '../components/TableHeader';
-import TableRow from '../components/TableRow';
+import { TableRow } from '../components/TableRow';
 
 const DataTable = props => {
     return (
