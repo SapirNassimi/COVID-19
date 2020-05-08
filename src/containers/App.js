@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import styled from 'styled-components';
 
 import { getCountriesData, getContinentsData, getGlobalData } from '../api/data';
 
@@ -25,13 +26,23 @@ const App = () => {
     }
 
     return (
-        <div>
+        <Body>
             <PageHeader globalData={globalData} />
             <DataTable countriesData={countriesData}
                 continentsData={continentsData}
                 globalData={globalData} />
-        </div>
+        </Body>
     )
 }
+
+const Body = styled.div`
+    color: #333;
+    background-color: #e0e4e6;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0 auto;
+    padding: 0 4%;
+    display: flex;
+    flex-direction: column;
+`;
 
 export default App;
