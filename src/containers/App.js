@@ -8,8 +8,10 @@ import DataTable from './DataTable';
 import { sortByProperty } from '../utils/sort';
 
 const App = () => {
-    const [countriesData, setCountriesData] = useState([]);
-    const [continentsData, setContinentsData] = useState([]);
+    const [allCountriesData, setAllCountriesData] = useState([]);
+    const [allContinentsData, setAllContinentsData] = useState([]);
+    const [countriesDataToShow, setCountriesDataToShow] = useState([]);
+    const [continentsDataToShow, setContinentsDataToShow] = useState([]);
     const [globalData, setGlobalData] = useState({});
 
     useEffect(() => {
@@ -17,24 +19,49 @@ const App = () => {
     }, []);
 
     useEffect(() => {
-        sortByProperty(countriesData, 'cases', 'total', false);
-    }, [countriesData]);
+        sortByProperty(countriesDataToShow, 'cases', 'total', false);
+        sortByProperty(continentsDataToShow, 'cases', 'total', false);
+    }, [countriesDataToShow], [continentsDataToShow]);
 
     const retriveAppData = async () => {
         const countriesFromServer = await getCountriesData();
         const continentsFromServer = await getContinentsData();
         const globalFromServer = await getGlobalData();
 
-        setCountriesData(countriesFromServer);
-        setContinentsData(continentsFromServer);
+        setAllCountriesData(countriesFromServer);
+        setAllContinentsData(continentsFromServer);
+        setCountriesDataToShow(countriesFromServer);
+        setContinentsDataToShow(continentsFromServer);
         setGlobalData(globalFromServer);
+    }
+
+    const filterData = filteringText => {
+        const filteredCountries = [];
+        const filteredContinents = [];
+
+        filteringText = filteringText.toUpperCase();
+        
+        for (let i = 0; i < allCountriesData.length; i++) {
+            if (allCountriesData[i].country.toUpperCase().includes(filteringText)) {
+                filteredCountries.push(allCountriesData[i]);
+            }
+        }
+
+        for (let i = 0; i < allContinentsData.length; i++) {
+            if (allContinentsData[i].country.toUpperCase().includes(filteringText)) {
+                filteredContinents.push(allContinentsData[i]);
+            }
+        }
+
+        setCountriesDataToShow(filteredCountries);
+        setContinentsDataToShow(filteredContinents);
     }
 
     return (
         <Body>
-            <PageHeader globalData={globalData} />
-            <DataTable countriesData={countriesData}
-                continentsData={continentsData}
+            <PageHeader globalData={globalData} updateTable={filterData}/>
+            <DataTable countriesData={countriesDataToShow}
+                continentsData={continentsDataToShow}
                 globalData={globalData} />
         </Body>
     )

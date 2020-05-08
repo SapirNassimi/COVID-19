@@ -5,7 +5,6 @@ import { TableCell } from './TableCell';
 
 const TableRow = props => {
     const data = props.data;
-    console.log(data);
 
     if (data && Object.keys(data).length > 0) {
         return (
