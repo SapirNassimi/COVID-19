@@ -1,10 +1,19 @@
 import React from 'react';
 
-const DataTable = () => {
+import TableHeader from '../components/TableHeader';
+import TableRow from '../components/TableRow';
+
+const DataTable = props => {
     return (
-        <div>
-            Data Table
-        </div>
+        <ul>
+            <TableHeader />
+            {
+                props.countriesData.map(country =>
+                    <TableRow key={country.country} data={country}/>
+                )
+            }
+            <TableRow key={props.globalData.country} data={props.globalData} totals/>
+        </ul>
     )
 }
 
