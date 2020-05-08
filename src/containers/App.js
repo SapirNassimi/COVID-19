@@ -5,6 +5,7 @@ import { getCountriesData, getContinentsData, getGlobalData } from '../api/data'
 
 import PageHeader from './PageHeader';
 import DataTable from './DataTable';
+import { sortByProperty } from '../utils/sort';
 
 const App = () => {
     const [countriesData, setCountriesData] = useState([]);
@@ -14,6 +15,10 @@ const App = () => {
     useEffect(() => {
         retriveAppData();
     }, []);
+
+    useEffect(() => {
+        sortByProperty(countriesData, 'cases', 'total', false);
+    }, [countriesData]);
 
     const retriveAppData = async () => {
         const countriesFromServer = await getCountriesData();
