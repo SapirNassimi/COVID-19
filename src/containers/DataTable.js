@@ -1,7 +1,7 @@
 import React from 'react';
 
 import TableHeader from '../components/TableHeader';
-import { TableRow } from '../components/TableRow';
+import TableRow from '../components/TableRow';
 
 const DataTable = props => {
     return (
@@ -12,7 +12,7 @@ const DataTable = props => {
                     <TableRow key={country.country} data={country}/>
                 )
             }
-            <TableRow key={props.globalData.country} data={props.globalData}/>
+            <TableRow key={props.globalData.country} data={props.globalData} totals/>
         </ul>
     )
 }

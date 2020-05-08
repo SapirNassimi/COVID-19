@@ -1,20 +1,32 @@
-import styled from 'styled-components';
+import React from 'react';
 
-export const TableRow = styled.li`
-    border-radius: 10px;
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 10px;
-    padding-left: 30px;
-    padding-right: 30px;
-    background-color: #fff;
-    padding-top: 15px;
-    padding-bottom: 15px;
-    box-shadow: 0px 0px 9px 2px rgba(0, 0, 0, 0.1);
+import StyledTableRow from './StyledTableRow';
+import { TableCell } from './TableCell';
 
-    ${props => props.totals && `
-        background-color: #e1e6e7;
-        font-weight: bolder;
-        color: #6e9194;
-    `};
-`;
+const TableRow = props => {
+    const data = props.data;
+    console.log(data);
+
+    if (data && Object.keys(data).length > 0) {
+        return (
+            <StyledTableRow totals={props.totals || undefined}>
+                <TableCell country>{data.country}</TableCell>
+                <TableCell>{data.cases.total}</TableCell>
+                <TableCell inputColor='red'>{data.cases.new}</TableCell>
+                <TableCell>{data.deaths.total}</TableCell>
+                <TableCell inputColor='red'>{data.deaths.new}</TableCell>
+                <TableCell>{data.cases.critical}</TableCell>
+                <TableCell inputColor='#06cc06'>{data.cases.recovered}</TableCell>
+                <TableCell>{data.cases.active}</TableCell>
+            </StyledTableRow>
+        );
+    }
+    
+    return (
+        <StyledTableRow totals={props.totals || undefined}>
+
+        </StyledTableRow>
+    );
+}
+
+export default TableRow;

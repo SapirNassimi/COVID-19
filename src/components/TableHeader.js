@@ -1,17 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { TableRow } from './TableRow';
+import StyledTableRow from './StyledTableRow';
 import { TableCell } from './TableCell';
-
-const StyledTableHeader = styled(TableRow)`
-    background-color: #95a5a6;
-    font-size: 14px;
-    text-transform: uppercase;
-    letter-spacing: 0.03em;
-    padding-top: 25px;
-    padding-bottom: 25px;
-    `;
 
 const TableHeader = () => {
     return (
@@ -27,5 +18,14 @@ const TableHeader = () => {
         </StyledTableHeader>
     )
 }
+
+const StyledTableHeader = styled(StyledTableRow)`
+    background-color: #95a5a6;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    `;
 
 export default TableHeader;
