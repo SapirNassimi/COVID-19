@@ -9,10 +9,10 @@ const DataTable = props => {
             <TableHeader />
             {
                 props.countriesData.map(country =>
-                    <TableRow data={country}/>
+                    <TableRow key={country.country} data={country}/>
                 )
             }
-            <TableRow data={props.globalData}/>
+            <TableRow key={props.globalData.country} data={props.globalData}/>
         </ul>
     )
 }
