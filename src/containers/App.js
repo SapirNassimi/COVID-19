@@ -73,8 +73,8 @@ const App = () => {
                 isDescending: !sortedBy.isDescending
             });
         } else {
-            sortByProperty(countriesDataToShow, firstField, secondField, true);
-            sortByProperty(continentsDataToShow, firstField, secondField, true);
+            sortByProperty(countriesDataToShow, firstField, secondField, false);
+            sortByProperty(continentsDataToShow, firstField, secondField, false);
 
             setSortedBy({
                 firstField,
