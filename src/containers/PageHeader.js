@@ -22,7 +22,7 @@ const PageHeader = props => {
                 type='text'
                 placeholder='Search'
                 value={searchText.search}
-                onChange={onChange}/>            
+                onChange={onChange} />            
         </div>
     )
 }
@@ -36,6 +36,11 @@ const StyledInput = styled.input`
     margin-bottom: 10px;
     border: 1px solid #ccc;
     padding: 8px;
+
+    ${props => props.name === 'search' && `
+        margin-left: 40px;
+        margin-top: 30px;
+    `};
 `;
 
 export default PageHeader;

@@ -101,7 +101,7 @@ const Body = styled.div`
     background-color: #e0e4e6;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0 auto;
-    padding: 0 4%;
+    padding: 0 100px;
     display: flex;
     flex-direction: column;
 `;
