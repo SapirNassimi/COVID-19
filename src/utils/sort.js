@@ -1,10 +1,10 @@
-const sortByProperty = (data, firstProperty, secondProperty, isAscending) => {
+const sortByProperty = (data, firstProperty, secondProperty, isDescending) => {
     if (data) {
         secondProperty ? 
             data.sort((a, b) => b[firstProperty][secondProperty] - a[firstProperty][secondProperty]) :
             data.sort((a, b) => b[firstProperty] - a[firstProperty]);
 
-        if (isAscending) {
+        if (!isDescending) {
             data.reverse();
         }
     }

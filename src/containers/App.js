@@ -16,7 +16,7 @@ const App = () => {
     const [sortedBy, setSortedBy] = useState({
         firstField: 'cases',
         secondField: 'total',
-        isDescending: false
+        isDescending: true
     })
 
     useEffect(() => {
@@ -73,8 +73,8 @@ const App = () => {
                 isDescending: !sortedBy.isDescending
             });
         } else {
-            sortByProperty(countriesDataToShow, firstField, secondField, false);
-            sortByProperty(continentsDataToShow, firstField, secondField, false);
+            sortByProperty(countriesDataToShow, firstField, secondField, true);
+            sortByProperty(continentsDataToShow, firstField, secondField, true);
 
             setSortedBy({
                 firstField,
