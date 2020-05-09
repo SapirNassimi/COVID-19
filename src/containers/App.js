@@ -62,8 +62,6 @@ const App = () => {
     }
 
     const sortTableData = (firstField, secondField) => {
-        console.log(secondField);
-
         if (firstField === sortedBy.firstField && secondField === sortedBy.secondField) {
             sortByProperty(countriesDataToShow, firstField, secondField, !sortedBy.isDescending);
             sortByProperty(continentsDataToShow, firstField, secondField, !sortedBy.isDescending);

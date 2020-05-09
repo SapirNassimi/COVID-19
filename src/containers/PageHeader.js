@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 
+import GlobalData from '../components/GlobalData';
+
 const PageHeader = props => {
     const [searchText, setSearchText] = useState({
         search: '',
@@ -22,7 +24,8 @@ const PageHeader = props => {
                 type='text'
                 placeholder='Search'
                 value={searchText.search}
-                onChange={onChange} />            
+                onChange={onChange} />
+            <GlobalData data={props.globalData}/>
         </div>
     )
 }
